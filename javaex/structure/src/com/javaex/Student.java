@@ -46,12 +46,12 @@ public class Student {
     public void setAverage(float average) {
         this.average = average;
     }
-    
+
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        String data = "name : " + this.name + "kor : " + this.kor_grade + 
-        "eng : " + this.eng_grade + "math : " + this.mat_grade;
+        String data = "name : " + this.name + "// kor : " + this.kor_grade + 
+        "// eng : " + this.eng_grade + "// math : " + this.mat_grade;
         return data;
     }
     

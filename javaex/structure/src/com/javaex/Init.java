@@ -15,7 +15,7 @@ public class Init {
         {
             
             System.out.println("성적처리프로그램");
-            System.err.println("1. 입력  // 2. 검색  //4. 출력 //5. 종료");
+            System.err.println("1. 입력  // 2. 검색  //3. 출력 //4. 종료");
             int c = scanner.nextInt();
 
             switch(c){
@@ -25,13 +25,11 @@ public class Init {
                 case 2:
                     NameSearch();
                     break;
-                case 3:
-                    AveSearch();
+
+                case 3: 
+                    Print();
                     break;
-                case 4: 
-                    Print(data);
-                    break;
-                case 5:
+                case 4:
                     b = false;
                     break;
                 
@@ -46,7 +44,8 @@ public class Init {
         for(int i = 0; i <= data.length - 1; i++){
             if(data[i].getAverage() >= 50)
             {
-                System.out.println(data[i].toString());
+                Print(data[i]);
+                //System.out.println(data[i].toString());
             }
 
         }
