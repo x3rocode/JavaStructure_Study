@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex;
+package javaex.structure.src.com.javaex.gradeprogram;
 
 /*
  성적 처리
