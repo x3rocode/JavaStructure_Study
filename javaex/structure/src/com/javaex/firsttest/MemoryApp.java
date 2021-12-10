@@ -8,10 +8,10 @@ public class MemoryApp {
       Memory mq = new MyQueue();
       Memory ms = new MyStack();
       
-      Scanner sc;
+      Scanner sc = new Scanner(System.in);
       
       while(true) {
-         sc = new Scanner(System.in);
+         
          System.out.println("1번 스택  2번 큐  3번 break");
          
          int num = sc.nextInt();
@@ -57,7 +57,7 @@ public class MemoryApp {
                }
             }
          } else {
-            return;
+            //return;
          }
       }
       

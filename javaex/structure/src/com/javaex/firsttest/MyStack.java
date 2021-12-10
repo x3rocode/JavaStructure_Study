@@ -18,9 +18,12 @@ public class MyStack extends Memory {
         if (pivot <= 0) {
             isEmpty();
         } else {
-            System.out.println("배열 값 추출:" + array[—pivot]); // 마지막 값 추출
+            System.out.println("배열 값 추출:" + array[--pivot]); // 마지막 값 추출
             array[pivot] = 0; // 추출한 곳 0으로 초기화
+            return 1;
         }
+
+        return 0;
     
     }
     
