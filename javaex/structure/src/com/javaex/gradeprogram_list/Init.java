@@ -19,7 +19,7 @@ public class Init {
         {
             
             System.out.println("성적처리프로그램");
-            System.err.println("1. 입력  // 2. 검색  //3. 출력 //4. 종료");
+            System.err.println("1. 입력  // 2. 검색  //3. 출력 //4. 삭제 //5. 종료");
             int c = scanner.nextInt();
 
             switch(c){
@@ -33,7 +33,10 @@ public class Init {
                 case 3: 
                     Print();
                     break;
-                case 4:
+                case 4: 
+                    DeleteData();
+                    break;
+                case 5:
                     b = false;
                     break;
                 
@@ -42,6 +45,18 @@ public class Init {
            
         }
         scanner.close();
+    }
+
+    public void DeleteData(){
+        String name;
+        System.out.println("삭제할 사람이름 : ");
+        name = scanner.next();
+
+        Student d = Search(name);
+        data.remove(d);
+    
+
+        System.out.println("삭제 완료");
     }
 
     public void AveSearch(){

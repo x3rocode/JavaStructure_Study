@@ -51,7 +51,7 @@ public class Student {
     public String toString() {
         // TODO Auto-generated method stub
         String data = "name : " + this.name + "// kor : " + this.kor_grade + 
-        "// eng : " + this.eng_grade + "// math : " + this.mat_grade;
+        "// eng : " + this.eng_grade + "// math : " + this.mat_grade + "\n";
         return data;
     }
     

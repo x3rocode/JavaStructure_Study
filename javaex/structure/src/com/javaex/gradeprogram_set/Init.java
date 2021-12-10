@@ -1,10 +1,15 @@
 package javaex.structure.src.com.javaex.gradeprogram_set;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Init {
 
-    public Student [] data = {}; 
+    HashSet<Student> data = new HashSet<>();
+    Iterator<Student> iter = data.iterator();
+    ArrayList<Student> students = new ArrayList<Student>();
 
     Scanner scanner = new Scanner(System.in);
 
@@ -15,7 +20,7 @@ public class Init {
         {
             
             System.out.println("성적처리프로그램");
-            System.err.println("1. 입력  // 2. 검색  //3. 출력 //4. 종료");
+            System.err.println("1. 입력  // 2. 검색  //3. 출력 //4. 삭제 //5. 종료");
             int c = scanner.nextInt();
 
             switch(c){
@@ -29,7 +34,10 @@ public class Init {
                 case 3: 
                     Print();
                     break;
-                case 4:
+                case 4: 
+                    DeleteData();
+                    break;
+                case 5:
                     b = false;
                     break;
                 
@@ -40,11 +48,25 @@ public class Init {
         scanner.close();
     }
 
+    public void DeleteData(){
+        String name;
+        System.out.println("삭제할 사람이름 : ");
+        name = scanner.next();
+
+        Student d = Search(name);
+        data.remove(d);
+        students.clear();
+        students = new ArrayList<>(data);
+    
+
+        System.out.println("삭제 완료");
+    }
+
     public void AveSearch(){
-        for(int i = 0; i <= data.length - 1; i++){
-            if(data[i].getAverage() >= 50)
+        for(int i = 0; i <= data.size() - 1; i++){
+            if(students.get(i).getAverage() >= 50)
             {
-                Print(data[i]);
+                Print(students.get(i));
                 //System.out.println(data[i].toString());
             }
 
@@ -53,10 +75,10 @@ public class Init {
     }
 
     public Student Search(String name){
-        for(int i = 0; i <= data.length - 1; i++){
-            if(data[i].getName().equals(name) )
+        for(int i = 0; i <= data.size() - 1; i++){
+            if(students.get(i).getName().equals(name) )
             {
-                return data[i];
+                return students.get(i);
             }
 
         }
@@ -78,19 +100,18 @@ public class Init {
             case 2:
                 AveSearch();
                 break;
-        
         }
 
     }
 
 
     public void Average(){
-        for(int i = 0; i <= data.length - 1; i++){
+        for(int i = 0; i <= students.size() - 1; i++){
             int sum = 0; 
 
-            sum = data[i].getKor_grade() + data[i].getEng_grade() + data[i].getMat_grade();
+            sum = students.get(i).getKor_grade() + students.get(i).getEng_grade() + students.get(i).getMat_grade();
 
-            data[i].setAverage((float)sum / 3);
+            students.get(i).setAverage((float)sum / 3);
         }
     }
 
@@ -101,10 +122,6 @@ public class Init {
 
         System.out.println("인원 수 : ");
         count = scanner.nextInt();
-
-
-
-        data = new Student[count];
 
         for(int i = 0; i <= count - 1; i++)
         {
@@ -122,8 +139,7 @@ public class Init {
             s.setKor_grade(kor);
             s.setEng_grade(eng);
             s.setMat_grade(mat);
-
-            data[i] = s;
+            data.add(s);
 
             
         }
@@ -132,10 +148,9 @@ public class Init {
     }
 
     public void Print(){
-        for(int i = 0; i <= data.length-1; i++)
-        {
-            System.out.println(data[i].toString());
-        }
+
+        students = new ArrayList<>(data);
+        System.out.println(students.toString());
     }
 
     public void Print(Student s){
