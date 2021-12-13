@@ -2,6 +2,7 @@ package javaex.structure.src.com.javaex.firsttest;
 
 import java.util.Arrays;
 
+
 public class BubbleSort {
     public static void main(String[] args) {
         int data[] = {90, 78, 100, 30, 55};
