@@ -6,6 +6,7 @@ import java.util.Random;
 class Test{
 
     public int [] data;
+    
 
     Test(){
         data = getRandNum();
@@ -37,6 +38,18 @@ class Test{
         System.out.println("insertion sort : " + Arrays.toString(data));
     }
 
+    public void quickSort(int[]data, int low, int high)
+    {
+        if(low >= high) {
+			return;
+		}
+		
+		int pivot = partition(data, low, high);	
+		quickSort(data, low, pivot - 1);
+		quickSort(data, pivot + 1, high);
+        System.out.println("quick sort : " + Arrays.toString(data));
+    }
+
     public void bubbleSort(int[]data)
     {   
         for(int i = 1; i < data.length; i++) {
@@ -61,16 +74,38 @@ class Test{
         data[i] = data[j];
         data[j] = temp;
     }
+
+    private int partition(int[] data, int first, int last) {
+		
+		int low = first;
+		int high = last;
+		int pivot = data[first];
+
+		while(low < high) {
+			while(data[high] > pivot && low < high) {
+				high--;
+			}
+			while(data[low] <= pivot && low < high) {
+				low++;
+			}
+            if(low < high){
+                swap(data, low, high);
+            }
+
+		}
+		
+		swap(data, first, low);
+		return low;
+	}
 }
 
 public class RandSortTest {
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
         Test test  = new Test();
         System.out.println("val arr : " + Arrays.toString(test.data));
         test.insertionSort(test.data);
         test.bubbleSort(test.data);
-
+        test.quickSort(test.data, 0, test.data.length - 1);
     }
-
 }
