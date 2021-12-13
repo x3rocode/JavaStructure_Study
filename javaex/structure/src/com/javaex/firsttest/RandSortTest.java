@@ -6,8 +6,8 @@ import java.util.Random;
 class Test{
 
     public int [] data;
+    int result = 0;
     
-
     Test(){
         data = getRandNum();
     }
@@ -16,8 +16,16 @@ class Test{
         int [] data = new int[100];   
 
         for(int i = 0; i < 99; i++){
-            int intValue = (int)(rand.nextInt(100)+1);
+            int intValue = (int)(rand.nextInt(200)+1);
             data[i] = intValue;
+            for(int j = 0; j < i; j++) 
+            { 
+                if(data[i]==data[j]) { 
+                    i--; 
+                    break;
+                }
+            }
+           
         }
         return data;
     }
@@ -47,7 +55,6 @@ class Test{
 		int pivot = partition(data, low, high);	
 		quickSort(data, low, pivot - 1);
 		quickSort(data, pivot + 1, high);
-        System.out.println("quick sort : " + Arrays.toString(data));
     }
 
     public void bubbleSort(int[]data)
@@ -75,7 +82,7 @@ class Test{
         data[j] = temp;
     }
 
-    private int partition(int[] data, int first, int last) {
+    public int partition(int[] data, int first, int last) {
 		
 		int low = first;
 		int high = last;
@@ -97,15 +104,43 @@ class Test{
 		swap(data, first, low);
 		return low;
 	}
+
+    public int binarySearch(int[] data, int num, int low, int high){
+       
+        int mid;
+		result++;
+		if(low <= high) {
+			mid = (low + high) / 2;
+			if(num == data[mid]) { 
+				return mid;
+			} else if(num < data[mid]) {
+				return binarySearch(data, num ,low, mid - 1);
+			} else if(num > data[mid]){
+				return binarySearch(data, num, mid + 1, high);
+			}
+		}
+		return -1; 
+    }
 }
 
 public class RandSortTest {
         public static void main(String[] args) {
 
         Test test  = new Test();
-        System.out.println("val arr : " + Arrays.toString(test.data));
-        test.insertionSort(test.data);
-        test.bubbleSort(test.data);
+        System.out.println("정렬 전 : " + Arrays.toString(test.data));
+        // test.insertionSort(test.data);
+        // test.bubbleSort(test.data);
         test.quickSort(test.data, 0, test.data.length - 1);
+        System.out.println( "정렬 후 : " + Arrays.toString(test.data));
+        int num = test.binarySearch(test.data, 10, 0, test.data.length);
+        if(num == -1)
+        {
+            System.out.println("없음!");
+        }
+        else{
+            System.out.println( num + 1 + "번째에 있음");
+            System.out.println( test.result + "번만에 찾음" );
+        }
+        
     }
 }
