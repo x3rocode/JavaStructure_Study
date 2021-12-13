@@ -30,6 +30,8 @@ public class SumCase {
         for (Integer integer : list) {
             System.out.println(dp[integer]);
         }
+        s.close();
+
     }
     
 }

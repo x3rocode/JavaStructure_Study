@@ -1,15 +1,14 @@
 package javaex.structure.src.com.javaex.groomlevel;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class VectorCal {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
+        //Scanner scanner = new Scanner(System.in);
+        // int a = scanner.nextInt();
+        // int b = scanner.nextInt();
 
-        String c = scanner.nextLine();
-
+       //
         float r1 = 0.0f;
         float r2 = 0.0f;
 

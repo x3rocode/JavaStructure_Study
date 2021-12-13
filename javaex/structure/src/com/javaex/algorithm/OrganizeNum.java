@@ -33,7 +33,7 @@ public class OrganizeNum {
     }
     public static boolean checkisOrganized(int x){
         String strNum = Integer.toString(x); 
-        ArrayList<Integer> arr = new ArrayList<Integer>();
+        //ArrayList<Integer> arr = new ArrayList<Integer>();
 
         for (int i = 0; i < strNum.length() -1; i++) 
         { 

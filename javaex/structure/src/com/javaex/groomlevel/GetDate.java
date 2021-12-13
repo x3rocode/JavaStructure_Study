@@ -8,7 +8,7 @@ import java.util.Locale;
 
 public class GetDate {
     public static void main(String[] args) throws Exception {
-        int[] num;
+        //int[] num;
 		Scanner scanner = new Scanner(System.in);
 		int a = scanner.nextInt();
 		int b = scanner.nextInt();

@@ -11,6 +11,8 @@ public class Fibonacci {
 			hap += fibo(i);
 		}
         System.out.println(hap);
+        scanner.close();
+
     }
 
     public static int fibo(int n) {

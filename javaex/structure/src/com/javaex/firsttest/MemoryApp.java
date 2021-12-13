@@ -35,6 +35,7 @@ public class MemoryApp {
                } else {
                   break;
                }
+               sc.close();
             }
             
          } else if(num == 2) { // Queue
@@ -49,6 +50,7 @@ public class MemoryApp {
                   int input_num = sc.nextInt();
                   
                   mq.push(input_num);
+                  sc.close();
                } else if (num2 == 2) {
                   mq.pop();
                   break;
@@ -59,8 +61,9 @@ public class MemoryApp {
          } else {
             //return;
          }
+         sc.close();
       }
-      
+     
    }
 
 }

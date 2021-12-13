@@ -31,6 +31,8 @@ public class StringShaker {
 		}
 
 		System.out.println(result);
+        sc.close();
+
     }
     
 }

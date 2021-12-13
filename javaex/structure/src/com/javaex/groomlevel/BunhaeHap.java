@@ -23,5 +23,7 @@ public class BunhaeHap {
             }
         }	
         System.out.println(result);	
+        scanner.close();
+
     }
 }

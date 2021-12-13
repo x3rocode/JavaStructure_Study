@@ -11,7 +11,7 @@ public class Bracket {
         int num_small_right=0;
         Scanner scan = new Scanner(System.in);
         String str=scan.next();
-        char[] char_arr = new char[str.length()];
+        //char[] char_arr = new char[str.length()];
         for(int i=0;i<str.length();i++){
             switch(str.charAt(i)){
                 case '{': num_big_left+=1;
@@ -33,5 +33,7 @@ public class Bracket {
         }else{
             System.out.println("불합격");
         }
+        scan.close();
+
     }
 }

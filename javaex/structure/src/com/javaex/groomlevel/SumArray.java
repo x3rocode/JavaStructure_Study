@@ -6,7 +6,7 @@ public class SumArray {
     public static void main(String[] args) {
         int count = 0;					// 입력받을 숫자의 개수 
 		int[] num;						// 입력받을 숫자 
-		int numMax = 0;					// 최대값 
+		//int numMax = 0;					// 최대값 
         int start = 0;
         int end = 0;
         int sum = 0;
@@ -29,6 +29,8 @@ public class SumArray {
 		
 
         System.out.println(sum);
+        scanner.close();
+
 	}
     
 }

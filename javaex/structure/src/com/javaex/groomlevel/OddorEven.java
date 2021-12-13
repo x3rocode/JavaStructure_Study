@@ -14,5 +14,7 @@ public class OddorEven {
 		{
 			System.out.println("even");
 		}
+        scanner.close();
+
 	}
 }

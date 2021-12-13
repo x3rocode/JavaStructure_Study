@@ -1,6 +1,6 @@
 package javaex.structure.src.com.javaex.gradeprogram_list;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 

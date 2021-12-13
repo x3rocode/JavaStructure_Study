@@ -45,6 +45,7 @@ public class CardGame {
         System.out.print("Input 6 Numbers! : ");
         int a = scanner.nextInt();
         splitNum(a);
+        scanner.close();
        
     }
 

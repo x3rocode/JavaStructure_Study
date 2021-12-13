@@ -13,6 +13,8 @@ public class CountOne {
         int b = Integer.bitCount(decimal);
 
         System.out.printf("%d %d",a, b);
+        scanner.close();
+
     }
     
 }

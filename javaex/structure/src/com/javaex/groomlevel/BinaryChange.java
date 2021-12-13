@@ -15,5 +15,6 @@ public class BinaryChange {
             }
         }
         System.out.printf("%d",reuslt);
+        scanner.close();
     }
 }

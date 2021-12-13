@@ -14,6 +14,8 @@ public class HexagodArea {
 
         String s = String.format("%.2f", result); 
         System.out.println(s);
+        scanner.close();
+
     }
     
 }

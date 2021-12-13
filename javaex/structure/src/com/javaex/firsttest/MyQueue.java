@@ -1,12 +1,12 @@
 package javaex.structure.src.com.javaex.firsttest;
 
-import java.io.PushbackReader;
-import java.net.http.HttpResponse.PushPromiseHandler;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
+// import java.io.PushbackReader;
+// import java.net.http.HttpResponse.PushPromiseHandler;
+// import java.util.Arrays;
+// import java.util.Scanner;
+// import java.util.concurrent.ExecutionException;
 
-import javax.print.attribute.standard.PrinterInfo;
+// import javax.print.attribute.standard.PrinterInfo;
 
 public class MyQueue extends Memory{  //extends memory
     int front;

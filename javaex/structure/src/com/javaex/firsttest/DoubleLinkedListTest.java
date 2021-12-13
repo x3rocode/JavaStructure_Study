@@ -1,18 +1,19 @@
-package javaex.structure.src.com.javaex.algorithm;
+package javaex.structure.src.com.javaex.firsttest;
+
 
  
-class LinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>();
-    private Node head;//노드가 헤드인지 표시하기 위해서 적음
-    private Node tail;//노드가 테일인지 표시하기 위해서 적음
-    private int size=0;//연결리스트는 size라는 속성을 가지니까 적고 0으로 초기화
+class MyLinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>();
+    public Node head;//노드가 헤드인지 표시하기 위해서 적음
+    //private Node tail;//노드가 테일인지 표시하기 위해서 적음
+    public int size=0;//연결리스트는 size라는 속성을 가지니까 적고 0으로 초기화
     class Node{//노드는 연결리스트의 한 부분이므로 연결리스트 클래스 안에 내부 클래스로 존재한다
-        private Node next;//각각의 노드 클래스의 인스턴스는. 즉 노드 객체는 다음 노드의 주소인 next
-
-        private T data;//그리고 data를 속성으로 갖는다
+        public Node next;//각각의 노드 클래스의 인스턴스는. 즉 노드 객체는 다음 노드의 주소인 next
+        public Node prev;
+        public T data;//그리고 data를 속성으로 갖는다
         public Node(T data) {//데이터가 새로 들어와서 노드가 새로 생성될때, 즉 생성자를 사용해야 한다
             this.data = data;
             this.next = null;//새로운 노드가 생성될 당시에는 이게 head인지 tail인지
-        
+            this.prev = null;
             //정하지 않는다 그래서 null로 지정한다
         }
     }
@@ -24,11 +25,16 @@ class LinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>();
             Node temp1 = node(index-1);
             Node temp2 = temp1.next;
             Node newNode = new Node(data);
+        
             temp1.next = newNode;
             newNode.next = temp2;
+            newNode.prev = temp1;
+            temp2.prev = newNode;
             size++;
             if (newNode.next==null) {//새로운 노드가 마지막 노드이면
-                tail = newNode;//tail이 새로운 노드를 가리키게 한다
+                //tail = newNode;//tail이 새로운 노드를 가리키게 한다
+                newNode.next = head;
+
             }
         }
     }
@@ -36,15 +42,41 @@ class LinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>();
         //값이 추가될때 노드가 하나 생성되기 때문에
         //생성자를 호출한다
         Node newNode = new Node(data);
-        newNode.next = head;//첫번째 인덱스에 생성된 노드이다
-        //그래서 노드의 주소는 head이다
-        head = newNode;//head역시 새로운 첫번째 노드를 가리킨다
-        size++;//리스트의 사이즈가 1 증가한다
-        if (head.next == null) {//헤드 노드의 다음이 없으면
+       
+       // newNode.next = head;//첫번째 인덱스에 생성된 노드이다
+        //newNode.prev = node(size);
+        //head.prev = head;
+        if (head == null) {//헤드 노드의 다음이 없으면
             //즉 이 노드가 처음이자 마지막 유일한 노드라면
-            tail = head;//tail이 head의 값과 같은 값을 갖게 한다
+            //tail이 head의 값과 같은 값을 갖게 한다
+            head = newNode;
+            newNode.prev = newNode;
+            newNode.next = newNode;
+            
+            //head.prev= head;
             //즉 head 와 tail이 가리키는 곳이 같아진다
         }
+        else{
+            Node tmp1 = head;
+            Node tmpprv = tmp1.prev;
+
+            newNode.prev = tmpprv;
+            newNode.next = tmp1;
+            tmp1.prev = newNode;
+            tmpprv.next = newNode;
+            head = newNode;
+        }
+
+       // tmp1.next = head;
+        //head역시 새로운 첫번째 노드를 가리킨다
+        
+       
+        
+        size++;//리스트의 사이즈가 1 증가한다
+        // if(head.prev == null) {
+        //     head.prev = head;
+        //     //newNode.prev = node(size);
+        // }
         // TODO Auto-generated method stub
     }
     public void addLast(T data) {
@@ -54,8 +86,14 @@ class LinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>();
             addFirst(data);//그래서  addFirst를 호출한다
         }
         else {
-            tail.next = newNode;
-            tail = newNode;
+            Node last = node(size);
+            Node nexts = last.next;
+
+            newNode.next = nexts;
+            nexts.prev = newNode;
+            last.next = newNode;
+            newNode.prev = last;
+
             size++;
         }    
     }
@@ -83,8 +121,17 @@ class LinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>();
         //node(index)까지의 결과는 사용자가 대입한 index만큼 노드를 탐색하고 주소를 반환한다
         //그리고 그곳의 .data값을 가져온다
     }
+
+    public Node Testget(int index) {
+        return node(index);
+        //node(index)까지의 결과는 사용자가 대입한 index만큼 노드를 탐색하고 주소를 반환한다
+        //그리고 그곳의 .data값을 가져온다
+    }
     public T removeFirst() {
         Node temp = head;
+
+        temp.next.prev = temp.prev;
+        temp.prev.next = temp.next;
         head = head.next;
         T returnData = temp.data;
         temp = null;
@@ -100,10 +147,11 @@ class LinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>();
         
         Node todoDeleted = temp.next;
         temp.next = temp.next.next;
+        temp.next.prev = temp;
         T returnData = todoDeleted.data;
-        if (todoDeleted==tail) {
-            tail = temp;
-        }
+        // if (todoDeleted == node(size-1)) {
+        //     node(size-1) = temp;
+        // }
         todoDeleted = null;
         size--;
         return returnData;
@@ -129,12 +177,35 @@ class LinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>();
     }
     
 }
-public class LinkedListTest {
+
+public class DoubleLinkedListTest {
     public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<Integer>();
+        MyLinkedList<Integer> list = new MyLinkedList<Integer>();
         
-        list.addLast(10);
-        list.addLast(20);
-        list.addLast(30);
+        list.addFirst(10);
+        list.addFirst(20);
+        list.addFirst(30);
+        list.addFirst(40);
+        list.addFirst(50);
+        list.removeLast();
+    
+        //list.removeFirst();
+        //list.add(0, 80);
+  
+        list.getAll();
+        //list.add(2, 10);
+
+        for(int i = 0; i  < list.size(); i++){
+            System.out.print(list.Testget(i).next.data + " ");
+            
+            
+        }
+        System.out.println();
+        for(int i = 0; i  < list.size(); i++){
+            
+            System.out.print(list.Testget(i).prev.data + " ");
+            
+            
+        }
     }
 }

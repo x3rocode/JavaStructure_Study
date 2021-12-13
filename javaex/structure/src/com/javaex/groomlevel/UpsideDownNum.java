@@ -13,5 +13,6 @@ public class UpsideDownNum {
             num /= 10;
         }
         System.out.println(result);
+        scanner.close();
     }
 }

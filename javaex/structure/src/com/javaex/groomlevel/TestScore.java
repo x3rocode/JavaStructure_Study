@@ -22,7 +22,7 @@ public class TestScore {
         }
 
         System.out.println(hap);
-
+        scanner.close();
     }
     
 }

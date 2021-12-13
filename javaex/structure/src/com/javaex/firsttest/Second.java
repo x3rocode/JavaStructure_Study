@@ -1,6 +1,6 @@
 package javaex.structure.src.com.javaex.firsttest;
 
-import javax.sql.rowset.spi.SyncResolver;
+//import javax.sql.rowset.spi.SyncResolver;
 
 class Halbe{
     public void disp(){
