@@ -1,5 +1,7 @@
 package javaex.structure.src.com.javaex.gradeprogram_map;
 
+import java.util.ArrayList;
+
 public class GradeApp {
 
  
@@ -7,6 +9,7 @@ public class GradeApp {
         
         Init makeApp = new Init();
         makeApp.Start();
+ 
 
     }
     

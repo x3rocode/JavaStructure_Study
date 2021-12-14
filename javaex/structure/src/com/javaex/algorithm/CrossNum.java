@@ -7,7 +7,12 @@ public class CrossNum {
 
     static ArrayList<Integer> data = new ArrayList<Integer>();
     public static void main(String[] args) {
-        printResult();
+               ArrayList<String> a = new ArrayList<>();
+        a.add("dfdf");
+        a.add("dddd");
+
+        System.out.println(a.toString());
+        //printResult();
     }
 
     public static String makeMin(int a){
