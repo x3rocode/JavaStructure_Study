@@ -70,14 +70,7 @@ class MyLinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>()
        // tmp1.next = head;
         //head역시 새로운 첫번째 노드를 가리킨다
         
-       
-        
         size++;//리스트의 사이즈가 1 증가한다
-        // if(head.prev == null) {
-        //     head.prev = head;
-        //     //newNode.prev = node(size);
-        // }
-        // TODO Auto-generated method stub
     }
     public void addLast(T data) {
         Node newNode = new Node(data);
@@ -86,7 +79,11 @@ class MyLinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>()
             addFirst(data);//그래서  addFirst를 호출한다
         }
         else {
-            Node last = node(size);
+
+            Node last = head;
+            while(last.next!=head){
+                last = last.next;
+            }
             Node nexts = last.next;
 
             newNode.next = nexts;
@@ -117,7 +114,9 @@ class MyLinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>()
         System.out.println("]");
     }
     public T get(int index) {
+
         return node(index).data;
+        
         //node(index)까지의 결과는 사용자가 대입한 index만큼 노드를 탐색하고 주소를 반환한다
         //그리고 그곳의 .data값을 가져온다
     }
@@ -187,7 +186,14 @@ public class DoubleLinkedListTest {
         list.addFirst(30);
         list.addFirst(40);
         list.addFirst(50);
-        list.removeLast();
+        list.addLast(101);
+
+        list.get(5);
+
+        //list.addLast(202);
+       // list.addLast(202);
+        // list.removeFirst();
+        // list.removeFirst();
     
         //list.removeFirst();
         //list.add(0, 80);
@@ -196,14 +202,14 @@ public class DoubleLinkedListTest {
         //list.add(2, 10);
 
         for(int i = 0; i  < list.size(); i++){
-            System.out.print(list.Testget(i).next.data + " ");
+            System.out.print(list.Testget(i).next.data + "  ");
             
             
         }
         System.out.println();
         for(int i = 0; i  < list.size(); i++){
             
-            System.out.print(list.Testget(i).prev.data + " ");
+            System.out.print(list.Testget(i).prev.data + "  ");
             
             
         }
