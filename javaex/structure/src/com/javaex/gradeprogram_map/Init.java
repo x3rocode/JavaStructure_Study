@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.gradeprogram_map;
+package com.javaex.gradeprogram_map;
 
 //import java.security.KeyStore.Entry;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.gradeprogram_set;
+package com.javaex.gradeprogram_set;
 
 import java.util.ArrayList;
 import java.util.HashSet;

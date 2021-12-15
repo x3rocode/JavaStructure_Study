@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.firsttest;
+package com.javaex.firsttest;
 
 class ATM implements Runnable {
     private long depositeMoney = 10000;

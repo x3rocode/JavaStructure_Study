@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.payrollmanagementsystem;
+package com.javaex.payrollmanagementsystem;
 
 import java.util.ArrayList;
 import java.util.Scanner;

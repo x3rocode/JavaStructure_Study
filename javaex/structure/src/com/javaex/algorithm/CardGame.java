@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.algorithm;
+package com.javaex.algorithm;
 
 import java.util.ArrayList;
 import java.util.Scanner;

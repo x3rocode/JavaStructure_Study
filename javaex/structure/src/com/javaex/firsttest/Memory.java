@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.firsttest;
+package com.javaex.firsttest;
 abstract public class Memory {
     protected int[] array = new int[5];
     protected int pivot=0;

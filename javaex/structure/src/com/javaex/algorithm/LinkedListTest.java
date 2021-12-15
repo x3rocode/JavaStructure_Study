@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.algorithm;
+package com.javaex.algorithm;
 
  
 class LinkedList<T>{//LinkedList<제네릭> list = new LinkedList<제네릭>();

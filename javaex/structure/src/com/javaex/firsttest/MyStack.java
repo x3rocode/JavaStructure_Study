@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.firsttest;
+package com.javaex.firsttest;
 
 public class MyStack extends Memory {
 

@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.gradeprogram;
+package com.javaex.gradeprogram;
 
 import java.util.Scanner;
 

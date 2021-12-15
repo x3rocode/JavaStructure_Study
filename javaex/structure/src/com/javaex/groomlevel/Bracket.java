@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.groomlevel;
+package com.javaex.groomlevel;
 import java.util.Scanner;
 
 public class Bracket {

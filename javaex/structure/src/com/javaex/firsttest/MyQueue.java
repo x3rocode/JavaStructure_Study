@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.firsttest;
+package com.javaex.firsttest;
 
 // import java.io.PushbackReader;
 // import java.net.http.HttpResponse.PushPromiseHandler;

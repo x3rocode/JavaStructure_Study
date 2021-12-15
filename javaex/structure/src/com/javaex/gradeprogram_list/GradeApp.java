@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.gradeprogram_list;
+package com.javaex.gradeprogram_list;
 
 public class GradeApp {
 

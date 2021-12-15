@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.groomlevel;
+package com.javaex.groomlevel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

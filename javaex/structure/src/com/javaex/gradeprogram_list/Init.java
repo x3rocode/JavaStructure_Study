@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.gradeprogram_list;
+package com.javaex.gradeprogram_list;
 
 //import java.util.ArrayList;
 import java.util.LinkedList;

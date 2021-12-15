@@ -1,4 +1,4 @@
-package javaex.structure.src.com.javaex.gradeprogram_map;
+package com.javaex.gradeprogram_map;
 
 import java.util.ArrayList;
 
